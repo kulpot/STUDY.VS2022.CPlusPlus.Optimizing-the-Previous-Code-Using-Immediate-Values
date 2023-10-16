@@ -21,11 +21,12 @@ doit proc
 	;mul 4		; error -- immediate operand not allowed
 	;move ebx, 6
 	;add eax, ebx		; 12 + 6 = 18	00000012
-	add eax, 6
+	add eax, 6		; opimize - embed immediate value 6
 	mov ebx, 2			; 18 / 2 
 	div ebx				; eax = 9	
 	;div 2		; error -- immediate operand not allowed
-	add eax, ebx		; 9 + 2 = 11	0000000B
+	;add eax, ebx		; 9 + 2 = 11	0000000B
+	add eax, 2		; opimize - embed immediate value 2
 	mov ebx, 5			; 11 * 5 
 	mul ebx				; eax = 55		00000037
 
